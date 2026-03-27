@@ -1,0 +1,44 @@
+============================================================
+  LIVE STREAM PHONE NUMBER EXTRACTION RESULTS
+============================================================
+Source: https://live.leisu.com/detail-4244416
+Date: 2026-03-27
+Extraction Method: Automated Browser Scraper (Playwright)
+
+------------------------------------------------------------
+EXTRACTED PHONE NUMBERS
+------------------------------------------------------------
+
+1. 177-4551-5545
+2. 161-7745-5167
+3. 177-4551-9344
+
+Total: 3 unique phone numbers found
+
+------------------------------------------------------------
+DETAILS
+------------------------------------------------------------
+
+Phone: 177-4551-5545
+  - First seen: 2026-03-27 02:59:21
+  - Status: Valid Chinese mobile number
+
+Phone: 161-7745-5167
+  - First seen: 2026-03-27 03:01:25
+  - Occurrences: 33 times during monitoring
+  - Status: Valid format (Note: 161 is a valid China Mobile prefix)
+
+Phone: 177-4551-9344
+  - First seen: 2026-03-27 03:05:43
+  - Occurrences: 23 times during monitoring
+  - Status: Valid Chinese mobile number
+
+------------------------------------------------------------
+FILES GENERATED
+------------------------------------------------------------
+- phones_live.csv      : Real-time extraction log
+- phones_backup.json   : Backup data
+- phones_list.txt      : Simple phone list
+- phones_final.json    : Complete structured data
+
+============================================================

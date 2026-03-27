@@ -1,0 +1,9 @@
+# Live Stream Phone Extractor - Dependencies
+# Install with: pip install -r requirements.txt
+
+# Core browser automation
+playwright>=1.40.0
+
+# Optional: for advanced features
+# pyyaml>=6.0
+# requests>=2.31.0

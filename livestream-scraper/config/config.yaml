@@ -1,0 +1,126 @@
+# LiveStream Phone Extractor Configuration
+# Documentation: docs/CONFIGURATION.md
+
+# Target live stream URL
+target:
+  url: "https://live.leisu.com/detail-4244416"
+  
+  # Optional: Custom headers
+  headers:
+    User-Agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    Accept-Language: "zh-CN,zh;q=0.9,en;q=0.8"
+
+# Scraping behavior
+scraping:
+  # Duration in seconds (0 = run indefinitely until interrupted)
+  duration: 300
+  
+  # Interval between page scans (seconds)
+  check_interval: 2
+  
+  # Scroll page every N iterations to load more content
+  scroll_interval: 5
+  
+  # Amount to scroll (pixels)
+  scroll_amount: 800
+  
+  # Initial wait time for page load (seconds)
+  initial_wait: 5
+  
+  # Maximum elements to scan per iteration (performance)
+  max_elements: 100
+
+# Browser settings
+browser:
+  # Run in headless mode (no GUI)
+  headless: true
+  
+  # Viewport size
+  viewport:
+    width: 1280
+    height: 800
+  
+  # Additional arguments for Chromium
+  args:
+    - "--disable-blink-features=AutomationControlled"
+    - "--disable-web-security"
+    - "--disable-features=IsolateOrigins,site-per-process"
+
+# Phone number extraction patterns
+# Supports regex patterns for different regions/formats
+phone_patterns:
+  # Chinese mobile numbers (11 digits, starts with 1)
+  - name: "china_mobile"
+    pattern: "1[3-9]\\d{9}"
+    enabled: true
+  
+  # With separators (spaces, dashes)
+  - name: "china_mobile_separated"
+    pattern: "1[3-9]\\d[\\s\\-]?\\d{4}[\\s\\-]?\\d{4}"
+    enabled: true
+  
+  # With country code
+  - name: "with_country_code"
+    pattern: "(\\+86|86)?[\\s\\-]?1[3-9]\\d{9}"
+    enabled: true
+
+# Output configuration
+output:
+  # Output directory (relative to project root)
+  directory: "./output"
+  
+  # File formats to generate
+  formats:
+    csv: true
+    json: true
+    txt: true
+  
+  # Filename prefix (timestamp will be appended)
+  filename_prefix: "phones"
+  
+  # Include context (surrounding text) in output
+  include_context: true
+  
+  # Maximum context length (characters)
+  max_context_length: 100
+
+# Notifications (optional)
+notifications:
+  enabled: false
+  
+  # Webhook URL for real-time notifications
+  webhook_url: ""
+  
+  # Notify on every new phone found
+  notify_on_find: false
+  
+  # Periodic summary notifications (seconds, 0 = disabled)
+  summary_interval: 0
+
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  
+  # Log to file
+  file_logging: true
+  log_file: "./output/scraper.log"
+  
+  # Console output
+  console_output: true
+  
+  # Progress update interval (seconds)
+  progress_interval: 30
+
+# Advanced settings
+advanced:
+  # Retry attempts on failure
+  max_retries: 3
+  
+  # Timeout for page operations (seconds)
+  timeout: 30
+  
+  # Delay between retries (seconds)
+  retry_delay: 5
+  
+  # Save backup every N seconds
+  backup_interval: 60
